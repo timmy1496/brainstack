@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+  nginx:
+    build:
+      context: docker
+      dockerfile: development/nginx/Dockerfile
+    volumes:
+      - ./api:/app
+    depends_on:
+      - api-php-fpm
+    ports:
+      - "8088:80"
+
+  api-php-fpm:
+    build:
+      context: docker
+      dockerfile: development/php-fpm/Dockerfile
+    environment:
+      APP_ENV: dev
+      APP_DEBUG: 1
+      PHP_IDE_CONFIG: serverName=API
+    volumes:
+      - ./api:/app
+
+  api-php-cli:
+    build:
+      context: docker
+      dockerfile: development/php-cli/Dockerfile
+    environment:
+      APP_ENV: dev
+      APP_DEBUG: 1
+    volumes:
+      - ./api:/app
+
+  mysql:
+    build:
+      context: docker
+      dockerfile: development/mysql/Dockerfile
+    ports:
+      - "3320:3306"
+    volumes:
+      - "./volumes/mysql:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: brainstack
+      MYSQL_USER: brainstack
+      MYSQL_PASSWORD: brainstack
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    command:
+      - '--default-authentication-plugin=mysql_native_password'
+      - '--character-set-server=utf8mb4'
