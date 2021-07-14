@@ -5,6 +5,8 @@ RUN apk add --no-cache autoconf g++ make \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable xdebug
 
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
 COPY /common/php-fpm/conf.d /usr/local/etc/php/conf.d
