@@ -54,7 +54,8 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "test": "phpunit --colors=always"
     },
     "conflict": {
         "symfony/symfony": "*"
