@@ -1,11 +1,12 @@
 <?php
 
 
-namespace App\Entity;
+namespace App\Creator;
 
+use App\Entity\Store;
 use Symfony\Component\HttpFoundation\Request;
 
-class StoreFactory
+class StoreCreator
 {
     public function create(Request $request): Store
     {

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Entity\HitFactory;
+use App\Entity\HitCreator;
 use App\Entity\Store;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +29,7 @@ class HitFactoryTest extends TestCase
 
     public function testSuccess()
     {
-        $hitFactory = (new HitFactory())->create($this->fakeRequest, $this->store);
+        $hitFactory = (new HitCreator())->create($this->fakeRequest, $this->store);
 
         self::assertEquals('127.0.0.1', $hitFactory->getIp());
         self::assertEquals('Chrome', $hitFactory->getBrowser());
@@ -41,18 +41,18 @@ class HitFactoryTest extends TestCase
     public function testEmptyRequest()
     {
         $this->expectException(\TypeError::class);
-        $hitFactory = (new HitFactory())->create(null, $this->store);
+        $hitFactory = (new HitCreator())->create(null, $this->store);
     }
 
     public function testEmptyStore()
     {
         $this->expectException(\TypeError::class);
-        $hitFactory = (new HitFactory())->create($this->fakeRequest, null);
+        $hitFactory = (new HitCreator())->create($this->fakeRequest, null);
     }
 
     public function testFailed()
     {
-        $hitFactory = (new HitFactory())->create($this->fakeRequest, $this->store);
+        $hitFactory = (new HitCreator())->create($this->fakeRequest, $this->store);
 
         self::assertNotEquals('127.0.0.2', $hitFactory->getIp());
         self::assertNotEquals('Opera', $hitFactory->getBrowser());

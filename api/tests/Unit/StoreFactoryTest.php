@@ -5,13 +5,13 @@ namespace Tests\Unit;
 
 
 use App\Entity\Store;
-use App\Entity\StoreFactory;
+use App\Entity\StoreCreator;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 class StoreFactoryTest extends TestCase
 {
-    private StoreFactory $storeFactory;
+    private StoreCreator $storeFactory;
 
     private Request $fakeRequest;
 
@@ -19,7 +19,7 @@ class StoreFactoryTest extends TestCase
     {
         $this->fakeRequest = Request::create('/api/hit', 'Post');
         $this->fakeRequest->headers->set('HOST', 'localhost:8080');
-        $this->storeFactory = new StoreFactory();
+        $this->storeFactory = new StoreCreator();
     }
 
     public function testSuccess()

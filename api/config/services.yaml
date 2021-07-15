@@ -24,8 +24,8 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Entity\StoreFactory:
+    App\Creator\StoreCreator:
         autowire: true
 
-    App\Entity\HitFactory:
+    App\Creator\HitCreator:
         autowire: true

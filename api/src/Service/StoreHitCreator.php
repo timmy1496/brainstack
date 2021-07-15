@@ -16,7 +16,7 @@ class StoreHitCreator
         $this->em = $em;
     }
 
-    public function save(Store $store, Hit $hit)
+    public function save(Store $store, Hit $hit): void
     {
         $this->em->persist($hit);
         $this->em->persist($store);

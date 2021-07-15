@@ -1,23 +1,25 @@
 <?php
 
 
-namespace App\Entity;
+namespace App\Creator;
 
 
-use App\Entity;
-
+use App\Entity\Hit;
+use App\Entity\Store;
 use DateTime;
 use DeviceDetector\DeviceDetector;
 use Symfony\Component\HttpFoundation\Request;
 
-class HitFactory
+class HitCreator
 {
+    private const PC = 'PC';
+
     public function create(Request $request, Store $store): Hit
     {
         $deviceDetected = self::deviceDetected($request);
         $device = $deviceDetected->getDevice();
         if (!$device) {
-            $device = 'PC';
+            $device = self::PC;
         }
 
         $hit = new Hit();
@@ -32,7 +34,7 @@ class HitFactory
         return $hit;
     }
 
-    private static function deviceDetected(Request $request)
+    private static function deviceDetected(Request $request): DeviceDetector
     {
         $dd = new DeviceDetector($request->headers->get('User-Agent'));
         $dd->parse();

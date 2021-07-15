@@ -18,7 +18,7 @@ class Hit
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private $ip;
 
