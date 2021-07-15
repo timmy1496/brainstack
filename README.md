@@ -11,7 +11,7 @@ for test hit from another hosts
 * `for start functional tests - make functional-test`
 
 For connect mysql in php storm:
-* `host: localshost`
+* `host: localhost`
 * `port: 3320`
 * `User: brainstack`
 * `Password: brainstack`
