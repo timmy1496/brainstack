@@ -9,6 +9,7 @@ services:
       - ./api:/app
     depends_on:
       - api-php-fpm
+      - mysql
     ports:
       - "8088:80"
 
