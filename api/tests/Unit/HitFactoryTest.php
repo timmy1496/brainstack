@@ -1,8 +1,9 @@
 <?php
 
-namespace Tests\Unit;
+namespace App\Tests\Unit;
 
-use App\Entity\HitCreator;
+
+use App\Creator\HitCreator;
 use App\Entity\Store;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;

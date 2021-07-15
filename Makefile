@@ -1,7 +1,9 @@
-init: docker-down docker-pull docker-build docker-up api-composer-install api-migration-start
+init: docker-down docker-pull docker-build docker-up api-composer-install
+migration: api-migration-start
 down: docker-down
 up: docker-up
 unit-test: api-test-unit
+functional-test: api-test-functional
 
 docker-up:
 	docker-compose up -d
@@ -23,3 +25,6 @@ api-migration-start:
 
 api-test-unit:
 	docker-compose run --rm api-php-cli composer test -- --testsuite=unit
+
+api-test-functional:
+	docker-compose run --rm api-php-cli composer test -- --testsuite=functional

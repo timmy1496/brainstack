@@ -1,11 +1,10 @@
 <?php
 
 
-namespace Tests\Unit;
+namespace App\Tests\Unit;
 
 
-use App\Entity\Store;
-use App\Entity\StoreCreator;
+use App\Creator\StoreCreator;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 

@@ -47,7 +47,7 @@ class HitController extends AbstractController
      */
     public function addHit(Request $request): Response
     {
-       $store = $this->getDoctrine()
+        $store = $this->getDoctrine()
             ->getRepository(Store::class)
             ->findOneBy(['host' => $request->getHttpHost()]);
 
@@ -58,7 +58,7 @@ class HitController extends AbstractController
         $this->storeHitCreator->save($store, $hit);
 
         return new Response(
-            'Saved new hit with id: '. $hit->getId()
+            'Saved new hit with id: ' . $hit->getId()
         );
     }
 }
