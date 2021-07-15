@@ -13,7 +13,7 @@ class StoreFactoryTest extends TestCase
 {
     private StoreFactory $storeFactory;
 
-    private $fakeRequest;
+    private Request $fakeRequest;
 
     public function setUp(): void
     {
