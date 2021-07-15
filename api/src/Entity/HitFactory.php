@@ -19,7 +19,7 @@ class HitFactory
         $hit = new Hit();
         $hit->setIp($request->getClientIp());
         $hit->setBrowser($deviceDetected->getClient('name'));
-        $hit->setDevice($deviceDetected->getDevice() ? $deviceDetected->getDevice() : 'PC');
+        $hit->setDevice($deviceDetected->getDevice() !== 0 ? $deviceDetected->getDevice() : 'PC');
         $hit->setReferer($request->headers->get('referer'));
         $hit->setCreatedAt(\DateTimeImmutable::createFromMutable(new DateTime()));
 
