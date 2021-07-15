@@ -9,3 +9,10 @@ for test hit from another hosts
 * `for testing hit send POST request to /api/hit`
 * `for start unit tests - make unit-test`
 * `for start functional tests - make functional-test`
+
+For connect mysql in php storm:
+* `host: localshost`
+* `port: 3320`
+* `User: brainstack`
+* `Password: brainstack`
+* `Database: brainstack`
