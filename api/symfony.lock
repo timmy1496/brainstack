@@ -88,6 +88,12 @@
     "laminas/laminas-code": {
         "version": "4.4.2"
     },
+    "matomo/device-detector": {
+        "version": "4.2.3"
+    },
+    "mustangostang/spyc": {
+        "version": "0.6.3"
+    },
     "nikic/php-parser": {
         "version": "v4.11.0"
     },
