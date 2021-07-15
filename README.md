@@ -3,7 +3,8 @@
 * `make init`
 * `make migration`
 
-The project will be available at http://localhost:8088
+The project will be available at http://localhost:8088 or http://localhost:8089
+for test hit from another hosts
 
 * `for testing hit send POST request to /api/hit`
 * `for start unit tests - make unit-test`

@@ -12,6 +12,7 @@ services:
       - mysql
     ports:
       - "8088:80"
+      - "8089:80"
 
   api-php-fpm:
     build:
